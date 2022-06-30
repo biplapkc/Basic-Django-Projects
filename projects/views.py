@@ -1,26 +1,34 @@
-
-from django.http import HttpResponse
+import re
 from django.shortcuts import render
-from .forms import usersForm
+from .forms import NameForm
 
 def home(request):
-    return render(request,"index.html")
+    return render(request,'index.html')
 
 def calculator(request):
-    full=""
-    data={}
+    ans=''
     try:
         if request.method=="POST":
-            f=request.POST.get('fname')
-            l=request.POST.get('lname')
-            full=f+l
-            print(full)
-            data={
-                "firstName":f,
-                "lastName":l,
-                "fullName":full
-            }
-    except:
-        pass
+            n1=eval(request.POST.get('num1'))
+            n2=eval(request.POST.get('num2'))
+            opr=request.POST.get('operators')
+        
+            if opr=="+":
+                ans=n1+n2
 
-    return render(request,"index.html",data)
+            elif opr=="-":
+                ans=n1-n2
+
+            elif opr=="*":
+                ans=n1*n2
+
+            elif opr=="/":
+                ans=n1/n2
+            
+
+    except:
+        c="Invalid operator or input"
+
+        
+
+    return render(request,'calculator.html',{'ans':ans})
