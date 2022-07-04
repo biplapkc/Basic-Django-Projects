@@ -2,6 +2,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import users
+from service.models import Service
 
 def home(request):
     form=users()
@@ -56,3 +57,12 @@ def calculator(request):
         
 
     return render(request,'calculator.html',{'ans':ans})
+
+
+def ourservices(request):
+    servicesData=Service.objects.all()
+    data={
+        'servicesData':servicesData
+    }
+
+    return render(request,"ourservices.html",data)

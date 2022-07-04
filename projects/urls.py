@@ -20,6 +20,7 @@ from projects import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name="home"),
-    path('calculator',views.calculator,name="calculator")
+    path('calculator',views.calculator,name="calculator"),
+    path('ourservices',views.ourservices,name="ourservices")
 
 ]

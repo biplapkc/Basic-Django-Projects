@@ -1,0 +1,17 @@
+{% load static %}
+{% include "header.html" %}
+
+<link rel="stylesheet" href="{% static '/main.css' %}">
+
+<div class="box1">
+    {% for n in servicesData %}
+
+    <h1>{{n.service_icon}}</h1>
+
+    <a href="">{{n.service_name}}</a>
+
+    <p>{{n.service_des}}</p>
+
+    {% endfor %}
+        
+</div>
