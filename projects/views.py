@@ -60,7 +60,7 @@ def calculator(request):
 
 
 def ourservices(request):
-    servicesData=Service.objects.all()
+    servicesData=Service.objects.all().order_by('service_name')[:5]
     data={
         'servicesData':servicesData
     }

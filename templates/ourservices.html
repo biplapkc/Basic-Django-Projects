@@ -10,7 +10,7 @@
 
     <a href="">{{n.service_name}}</a>
 
-    <p>{{n.service_des}}</p>
+    <p>{{n.service_des|safe|lower}}</p>
 
     {% endfor %}
         
