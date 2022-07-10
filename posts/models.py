@@ -5,6 +5,6 @@ from tinymce.models import HTMLField
 
 
 # Create your models here.
-class Post(models.Model):
+class News(models.Model):
     Title=models.CharField(max_length=50)
     Description=HTMLField()

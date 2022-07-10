@@ -1,8 +1,8 @@
 from django.contrib import admin
-from posts.models import Post
+from posts.models import News
 
 # Register your models here.
-class PostAdmin(admin.ModelAdmin):
+class NewsAdmin(admin.ModelAdmin):
     list_display=('Title','Description')
 
-admin.site.register(Post,PostAdmin)
+admin.site.register(News,NewsAdmin)

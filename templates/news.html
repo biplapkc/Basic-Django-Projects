@@ -1,0 +1,14 @@
+{% load static %}
+{% include "header.html" %}
+
+<h1> Here You Can View Posts</h1>
+
+<marquee onmouseover="stop()" onmouseout="start()" >
+   {% for n in newsData %}
+   
+   <a href="/news/{{n.id}}" class="b">  {{n.Title}} &nbsp;&nbsp;&nbsp;&nbsp; </a>
+
+   
+
+   {% endfor%}
+</marquee>

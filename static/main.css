@@ -7,6 +7,7 @@ header{
 .a{
     color: white;
     margin-left: 50px;
+    text-decoration: none;
     
 }
 
@@ -27,4 +28,16 @@ div.box1{
   padding: 50px;
   margin: 20px;
 
+}
+
+marquee{
+    height: 20px;
+    background-color: black;
+    color: white;
+}
+
+marquee a{
+    color: white;
+    font: bold;
+    text-decoration: none;
 }

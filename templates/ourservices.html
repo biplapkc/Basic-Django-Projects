@@ -3,7 +3,20 @@
 
 <link rel="stylesheet" href="{% static '/main.css' %}">
 
+<br>
+<br>
+
+
+
 <div class="box1">
+    <form method="GET">
+
+        <input type="text" name="inputService" value={{st}}>
+        <input type="submit" value="search">
+    
+    
+    </form>
+
     {% for n in servicesData %}
 
     <h1>{{n.service_icon}}</h1>
@@ -11,6 +24,10 @@
     <a href="">{{n.service_name}}</a>
 
     <p>{{n.service_des|safe|lower}}</p>
+
+    {% empty %}
+
+    No record found
 
     {% endfor %}
         

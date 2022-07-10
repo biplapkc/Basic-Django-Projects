@@ -1,8 +1,10 @@
 
+from urllib import request
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import users
 from service.models import Service
+from posts.models import News
 
 def home(request):
     form=users()
@@ -25,6 +27,7 @@ def home(request):
 
         else:
             form=users()
+
             
 
     return render(request,'index.html',{'form':form})
@@ -60,9 +63,30 @@ def calculator(request):
 
 
 def ourservices(request):
-    servicesData=Service.objects.all().order_by('service_name')[:5]
+    #servicesData=Service.objects.all().order_by('service_name')[:2] // it gets 2 data from admin
+    #servicesData=Service.objects.all() // it gets all the data from admin 
+
+    #To filter from search 
+    servicesData=Service.objects.all()
+    if request.method=="GET":
+        st=request.GET.get('inputService')
+        if st!=None:
+            #servicesData=Service.objects.filter(service_name=st) // searches if matches the whole word
+
+            #to search with a single letter if matches
+            servicesData=Service.objects.filter(service_name__icontains=st)
+
     data={
         'servicesData':servicesData
     }
 
     return render(request,"ourservices.html",data)
+
+
+def allNews(request):
+    newsData=News.objects.all()
+    data={
+        'newsData':newsData
+    }
+
+    return render(request,'news.html',data)
